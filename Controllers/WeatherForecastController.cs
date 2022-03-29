@@ -26,6 +26,7 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            //This should show as an error
             var stringData = "";
             var stringData1 = "";
             var rng = new Random();
