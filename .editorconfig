@@ -1,0 +1,869 @@
+﻿# To learn more about .editorconfig see https://aka.ms/editorconfigdocs
+###############################
+# Core EditorConfig Options   #
+###############################
+root = true
+
+# All files
+[*]
+indent_style = space
+
+# Code files
+[*.{cs,csx}]
+indent_size = 4
+insert_final_newline = true
+charset = utf-8-bom
+
+###############################
+# .NET Coding Conventions     #
+###############################
+[*.{cs}]
+# Organize usings
+dotnet_sort_system_directives_first = true
+
+# this. preferences
+dotnet_style_qualification_for_field = false:silent
+dotnet_style_qualification_for_property = false:silent
+dotnet_style_qualification_for_method = false:silent
+dotnet_style_qualification_for_event = false:silent
+
+# Language keywords vs BCL types preferences
+dotnet_style_predefined_type_for_locals_parameters_members = true:silent
+dotnet_style_predefined_type_for_member_access = true:silent
+
+# Parentheses preferences
+dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity:silent
+dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity:silent
+dotnet_style_parentheses_in_other_binary_operators = always_for_clarity:silent
+dotnet_style_parentheses_in_other_operators = never_if_unnecessary:silent
+
+# Modifier preferences
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:silent
+dotnet_style_readonly_field = true:suggestion
+
+# Expression-level preferences
+dotnet_style_object_initializer = true:suggestion
+dotnet_style_collection_initializer = true:suggestion
+dotnet_style_explicit_tuple_names = true:suggestion
+dotnet_style_null_propagation = true:suggestion
+dotnet_style_coalesce_expression = true:suggestion
+dotnet_style_prefer_is_null_check_over_reference_equality_method = true:silent
+dotnet_style_prefer_inferred_tuple_names = true:suggestion
+dotnet_style_prefer_inferred_anonymous_type_member_names = true:suggestion
+dotnet_style_prefer_auto_properties = true:silent
+dotnet_style_prefer_conditional_expression_over_assignment = true:silent
+dotnet_style_prefer_conditional_expression_over_return = true:silent
+
+
+###############################
+# Naming Conventions          #
+###############################
+
+# Style Definitions
+dotnet_naming_style.pascal_case_style.capitalization             = pascal_case
+
+# Use PascalCase for constant fields  
+dotnet_naming_rule.constant_fields_should_be_pascal_case.severity = suggestion
+dotnet_naming_rule.constant_fields_should_be_pascal_case.symbols  = constant_fields
+dotnet_naming_rule.constant_fields_should_be_pascal_case.style    = pascal_case_style
+dotnet_naming_symbols.constant_fields.applicable_kinds            = field
+dotnet_naming_symbols.constant_fields.applicable_accessibilities  = *
+dotnet_naming_symbols.constant_fields.required_modifiers          = const
+
+
+###############################
+# C# Coding Conventions       #
+###############################
+[*.cs]
+# var preferences
+csharp_style_var_for_built_in_types = true:silent
+csharp_style_var_when_type_is_apparent = true:silent
+csharp_style_var_elsewhere = true:silent
+
+# Expression-bodied members
+csharp_style_expression_bodied_methods = false:silent
+csharp_style_expression_bodied_constructors = false:silent
+csharp_style_expression_bodied_operators = false:silent
+csharp_style_expression_bodied_properties = true:silent
+csharp_style_expression_bodied_indexers = true:silent
+csharp_style_expression_bodied_accessors = true:silent
+
+# Pattern matching preferences
+csharp_style_pattern_matching_over_is_with_cast_check = true:suggestion
+csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
+
+# Null-checking preferences
+csharp_style_throw_expression = true:suggestion
+csharp_style_conditional_delegate_call = true:suggestion
+
+# Modifier preferences
+csharp_preferred_modifier_order = public,private,protected,internal,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,volatile,async:suggestion
+
+# Expression-level preferences
+csharp_prefer_braces = true:silent
+csharp_style_deconstructed_variable_declaration = true:suggestion
+csharp_prefer_simple_default_expression = true:suggestion
+csharp_style_pattern_local_over_anonymous_function = true:suggestion
+csharp_style_inlined_variable_declaration = true:suggestion
+
+
+###############################
+# C# Formatting Rules         #
+###############################
+# New line preferences
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+csharp_new_line_before_members_in_object_initializers = true
+csharp_new_line_before_members_in_anonymous_types = true
+csharp_new_line_between_query_expression_clauses = true
+
+# Indentation preferences
+csharp_indent_case_contents = true
+csharp_indent_switch_labels = true
+csharp_indent_labels = flush_left
+
+# Space preferences
+csharp_space_after_cast = false
+csharp_space_after_keywords_in_control_flow_statements = true
+csharp_space_between_method_call_parameter_list_parentheses = false
+csharp_space_between_method_declaration_parameter_list_parentheses = false
+csharp_space_between_parentheses = false
+csharp_space_before_colon_in_inheritance_clause = true
+csharp_space_after_colon_in_inheritance_clause = true
+csharp_space_around_binary_operators = before_and_after
+csharp_space_between_method_declaration_empty_parameter_list_parentheses = false
+csharp_space_between_method_call_name_and_opening_parenthesis = false
+csharp_space_between_method_call_empty_parameter_list_parentheses = false
+
+# Wrapping preferences
+csharp_preserve_single_line_statements = true
+csharp_preserve_single_line_blocks = true
+
+###############################
+# Microsoft.AspNetCore.Analyzers 
+# Description: Microsoft.AspNetCore.Analyzers with default action
+###############################
+
+# Code files
+[*.{cs}]
+
+dotnet_diagnostic.ASP0000.severity = Warning # Do not call 'IServiceCollection.BuildServiceProvider' in 'ConfigureServices'
+dotnet_diagnostic.ASP0001.severity = Warning # Authorization middleware is incorrectly configured.
+dotnet_diagnostic.MVC1005.severity = Warning # Cannot use UseMvc with Endpoint Routing.
+
+###############################
+# Microsoft.AspNetCore.Components.Analyzers 
+# Description: Microsoft.AspNetCore.Components.Analyzers with default action
+###############################
+
+# Code files
+[*.{cs}]
+
+dotnet_diagnostic.BL0001.severity = Error # Component parameter should have public setters.
+dotnet_diagnostic.BL0002.severity = Warning # Component has multiple CaptureUnmatchedValues parameters
+dotnet_diagnostic.BL0003.severity = Warning # Component parameter with CaptureUnmatchedValues has the wrong type
+dotnet_diagnostic.BL0004.severity = Warning # Component parameter should be public.
+dotnet_diagnostic.BL0005.severity = Warning # Component parameter should not be set outside of its component.
+dotnet_diagnostic.BL0006.severity = Warning # Do not use RenderTree types
+
+###############################
+# Microsoft.AspNetCore.Mvc.Analyzers 
+# Description: Microsoft.AspNetCore.Mvc.Analyzers with default action
+###############################
+
+# Code files
+[*.{cs}]
+
+dotnet_diagnostic.MVC1000.severity = Warning # Use of IHtmlHelper.{0} should be avoided.
+dotnet_diagnostic.MVC1001.severity = Warning # Filters cannot be applied to page handler methods.
+dotnet_diagnostic.MVC1002.severity = Warning # Route attributes cannot be applied to page handler methods.
+dotnet_diagnostic.MVC1003.severity = Warning # Route attributes cannot be applied to page models.
+dotnet_diagnostic.MVC1004.severity = Warning # Rename model bound parameter.
+dotnet_diagnostic.MVC1006.severity = Error # Methods containing TagHelpers must be async and return Task.
+
+###############################
+# StyleCop.Analyzers rules with default action (To learn more : https://github.com/DotNetAnalyzers/StyleCopAnalyzers)
+# Description: StyleCop.Analyzers with default action. Rules with IsEnabledByDefault = false are disabled.
+###############################
+
+# Code files
+[*.{cs}]
+
+dotnet_diagnostic.SA0001.severity = warning # XML comment analysis disabled
+dotnet_diagnostic.SA0002.severity = warning # Invalid settings file
+dotnet_diagnostic.SA1000.severity = warning # Keywords should be spaced correctly
+dotnet_diagnostic.SA1001.severity = warning # Commas should be spaced correctly
+dotnet_diagnostic.SA1002.severity = warning # Semicolons should be spaced correctly
+dotnet_diagnostic.SA1003.severity = warning # Symbols should be spaced correctly
+dotnet_diagnostic.SA1004.severity = warning # Documentation lines should begin with single space
+dotnet_diagnostic.SA1005.severity = warning # Single line comments should begin with single space
+dotnet_diagnostic.SA1006.severity = warning # Preprocessor keywords should not be preceded by space
+dotnet_diagnostic.SA1007.severity = warning # Operator keyword should be followed by space
+dotnet_diagnostic.SA1008.severity = warning # Opening parenthesis should be spaced correctly
+dotnet_diagnostic.SA1009.severity = warning # Closing parenthesis should be spaced correctly
+dotnet_diagnostic.SA1010.severity = warning # Opening square brackets should be spaced correctly
+dotnet_diagnostic.SA1011.severity = warning # Closing square brackets should be spaced correctly
+dotnet_diagnostic.SA1012.severity = warning # Opening braces should be spaced correctly
+dotnet_diagnostic.SA1013.severity = warning # Closing braces should be spaced correctly
+dotnet_diagnostic.SA1014.severity = warning # Opening generic brackets should be spaced correctly
+dotnet_diagnostic.SA1015.severity = warning # Closing generic brackets should be spaced correctly
+dotnet_diagnostic.SA1016.severity = warning # Opening attribute brackets should be spaced correctly
+dotnet_diagnostic.SA1017.severity = warning # Closing attribute brackets should be spaced correctly
+dotnet_diagnostic.SA1018.severity = warning # Nullable type symbols should be spaced correctly
+dotnet_diagnostic.SA1019.severity = warning # Member access symbols should be spaced correctly
+dotnet_diagnostic.SA1020.severity = warning # Increment decrement symbols should be spaced correctly
+dotnet_diagnostic.SA1021.severity = warning # Negative signs should be spaced correctly
+dotnet_diagnostic.SA1022.severity = warning # Positive signs should be spaced correctly
+dotnet_diagnostic.SA1023.severity = warning # Dereference and access of symbols should be spaced correctly
+dotnet_diagnostic.SA1024.severity = warning # Colons should be spaced correctly
+dotnet_diagnostic.SA1025.severity = warning # Code should not contain multiple whitespace in a row
+dotnet_diagnostic.SA1026.severity = warning # Code should not contain space after new or stackalloc keyword in implicitly typed array allocation
+dotnet_diagnostic.SA1027.severity = warning # Use tabs correctly
+dotnet_diagnostic.SA1028.severity = warning # Code should not contain trailing whitespace
+dotnet_diagnostic.SA1100.severity = warning # Do not prefix calls with base unless local implementation exists
+dotnet_diagnostic.SA1101.severity = warning # Prefix local calls with this
+dotnet_diagnostic.SA1102.severity = warning # Query clause should follow previous clause
+dotnet_diagnostic.SA1103.severity = warning # Query clauses should be on separate lines or all on one line
+dotnet_diagnostic.SA1104.severity = warning # Query clause should begin on new line when previous clause spans multiple lines
+dotnet_diagnostic.SA1105.severity = warning # Query clauses spanning multiple lines should begin on own line
+dotnet_diagnostic.SA1106.severity = warning # Code should not contain empty statements
+dotnet_diagnostic.SA1107.severity = warning # Code should not contain multiple statements on one line
+dotnet_diagnostic.SA1108.severity = warning # Block statements should not contain embedded comments
+dotnet_diagnostic.SA1109.severity = none # Block statements should not contain embedded regions
+dotnet_diagnostic.SA1110.severity = warning # Opening parenthesis or bracket should be on declaration line
+dotnet_diagnostic.SA1111.severity = warning # Closing parenthesis should be on line of last parameter
+dotnet_diagnostic.SA1112.severity = warning # Closing parenthesis should be on line of opening parenthesis
+dotnet_diagnostic.SA1113.severity = warning # Comma should be on the same line as previous parameter
+dotnet_diagnostic.SA1114.severity = warning # Parameter list should follow declaration
+dotnet_diagnostic.SA1115.severity = warning # Parameter should follow comma
+dotnet_diagnostic.SA1116.severity = warning # Split parameters should start on line after declaration
+dotnet_diagnostic.SA1117.severity = warning # Parameters should be on same line or separate lines
+dotnet_diagnostic.SA1118.severity = warning # Parameter should not span multiple lines
+dotnet_diagnostic.SA1119.severity = warning # Statement should not use unnecessary parenthesis
+dotnet_diagnostic.SA1120.severity = warning # Comments should contain text
+dotnet_diagnostic.SA1121.severity = warning # Use built-in type alias
+dotnet_diagnostic.SA1122.severity = warning # Use string.Empty for empty strings
+dotnet_diagnostic.SA1123.severity = warning # Do not place regions within elements
+dotnet_diagnostic.SA1124.severity = warning # Do not use regions
+dotnet_diagnostic.SA1125.severity = warning # Use shorthand for nullable types
+dotnet_diagnostic.SA1126.severity = none # Prefix calls correctly
+dotnet_diagnostic.SA1127.severity = warning # Generic type constraints should be on their own line
+dotnet_diagnostic.SA1128.severity = warning # Put constructor initializers on their own line
+dotnet_diagnostic.SA1129.severity = warning # Do not use default value type constructor
+dotnet_diagnostic.SA1130.severity = warning # Use lambda syntax
+dotnet_diagnostic.SA1131.severity = warning # Use readable conditions
+dotnet_diagnostic.SA1132.severity = warning # Do not combine fields
+dotnet_diagnostic.SA1133.severity = warning # Do not combine attributes
+dotnet_diagnostic.SA1134.severity = warning # Attributes should not share line
+dotnet_diagnostic.SA1135.severity = warning # Using directives should be qualified
+dotnet_diagnostic.SA1136.severity = warning # Enum values should be on separate lines
+dotnet_diagnostic.SA1137.severity = warning # Elements should have the same indentation
+dotnet_diagnostic.SA1139.severity = warning # Use literal suffix notation instead of casting
+dotnet_diagnostic.SA1200.severity = warning # Using directives should be placed correctly
+dotnet_diagnostic.SA1201.severity = warning # Elements should appear in the correct order
+dotnet_diagnostic.SA1202.severity = warning # Elements should be ordered by access
+dotnet_diagnostic.SA1203.severity = warning # Constants should appear before fields
+dotnet_diagnostic.SA1204.severity = warning # Static elements should appear before instance elements
+dotnet_diagnostic.SA1205.severity = warning # Partial elements should declare access
+dotnet_diagnostic.SA1206.severity = warning # Declaration keywords should follow order
+dotnet_diagnostic.SA1207.severity = warning # Protected should come before internal
+dotnet_diagnostic.SA1208.severity = warning # System using directives should be placed before other using directives
+dotnet_diagnostic.SA1209.severity = warning # Using alias directives should be placed after other using directives
+dotnet_diagnostic.SA1210.severity = warning # Using directives should be ordered alphabetically by namespace
+dotnet_diagnostic.SA1211.severity = warning # Using alias directives should be ordered alphabetically by alias name
+dotnet_diagnostic.SA1212.severity = warning # Property accessors should follow order
+dotnet_diagnostic.SA1213.severity = warning # Event accessors should follow order
+dotnet_diagnostic.SA1214.severity = warning # Readonly fields should appear before non-readonly fields
+dotnet_diagnostic.SA1216.severity = warning # Using static directives should be placed at the correct location
+dotnet_diagnostic.SA1217.severity = warning # Using static directives should be ordered alphabetically
+dotnet_diagnostic.SA1300.severity = warning # Element should begin with upper-case letter
+dotnet_diagnostic.SA1301.severity = none # Element should begin with lower-case letter
+dotnet_diagnostic.SA1302.severity = warning # Interface names should begin with I
+dotnet_diagnostic.SA1303.severity = warning # Const field names should begin with upper-case letter
+dotnet_diagnostic.SA1304.severity = warning # Non-private readonly fields should begin with upper-case letter
+dotnet_diagnostic.SA1305.severity = none # Field names should not use Hungarian notation
+dotnet_diagnostic.SA1306.severity = warning # Field names should begin with lower-case letter
+dotnet_diagnostic.SA1307.severity = warning # Accessible fields should begin with upper-case letter
+dotnet_diagnostic.SA1308.severity = warning # Variable names should not be prefixed
+dotnet_diagnostic.SA1309.severity = warning # Field names should not begin with underscore
+dotnet_diagnostic.SA1310.severity = warning # Field names should not contain underscore
+dotnet_diagnostic.SA1311.severity = warning # Static readonly fields should begin with upper-case letter
+dotnet_diagnostic.SA1312.severity = warning # Variable names should begin with lower-case letter
+dotnet_diagnostic.SA1313.severity = warning # Parameter names should begin with lower-case letter
+dotnet_diagnostic.SA1314.severity = warning # Type parameter names should begin with T
+dotnet_diagnostic.SA1400.severity = warning # Access modifier should be declared
+dotnet_diagnostic.SA1401.severity = warning # Fields should be private
+dotnet_diagnostic.SA1402.severity = warning # File may only contain a single type
+dotnet_diagnostic.SA1403.severity = warning # File may only contain a single namespace
+dotnet_diagnostic.SA1404.severity = warning # Code analysis suppression should have justification
+dotnet_diagnostic.SA1405.severity = warning # Debug.Assert should provide message text
+dotnet_diagnostic.SA1406.severity = warning # Debug.Fail should provide message text
+dotnet_diagnostic.SA1407.severity = warning # Arithmetic expressions should declare precedence
+dotnet_diagnostic.SA1408.severity = warning # Conditional expressions should declare precedence
+dotnet_diagnostic.SA1409.severity = none # Remove unnecessary code
+dotnet_diagnostic.SA1410.severity = warning # Remove delegate parenthesis when possible
+dotnet_diagnostic.SA1411.severity = warning # Attribute constructor should not use unnecessary parenthesis
+dotnet_diagnostic.SA1412.severity = none # Store files as UTF-8 with byte order mark
+dotnet_diagnostic.SA1413.severity = warning # Use trailing comma in multi-line initializers
+dotnet_diagnostic.SA1500.severity = warning # Braces for multi-line statements should not share line
+dotnet_diagnostic.SA1501.severity = warning # Statement should not be on a single line
+
+# Element should not be on a single line
+dotnet_diagnostic.SA1502.severity = warning
+# Braces should not be omitted
+dotnet_diagnostic.SA1503.severity = warning
+# All accessors should be single-line or multi-line
+dotnet_diagnostic.SA1504.severity = warning
+# Opening braces should not be followed by blank line
+dotnet_diagnostic.SA1505.severity = warning
+# Element documentation headers should not be followed by blank line
+dotnet_diagnostic.SA1506.severity = warning
+# Code should not contain multiple blank lines in a row
+dotnet_diagnostic.SA1507.severity = warning
+# Closing braces should not be preceded by blank line
+dotnet_diagnostic.SA1508.severity = warning
+# Opening braces should not be preceded by blank line
+dotnet_diagnostic.SA1509.severity = warning
+# Chained statement blocks should not be preceded by blank line
+dotnet_diagnostic.SA1510.severity = warning
+# While-do footer should not be preceded by blank line
+dotnet_diagnostic.SA1511.severity = warning
+# Single-line comments should not be followed by blank line
+dotnet_diagnostic.SA1512.severity = warning
+# Closing brace should be followed by blank line
+dotnet_diagnostic.SA1513.severity = warning
+# Element documentation header should be preceded by blank line
+dotnet_diagnostic.SA1514.severity = warning
+# Single-line comment should be preceded by blank line
+dotnet_diagnostic.SA1515.severity = warning
+# Elements should be separated by blank line
+dotnet_diagnostic.SA1516.severity = warning
+# Code should not contain blank lines at start of file
+dotnet_diagnostic.SA1517.severity = warning
+# Use line endings correctly at end of file
+dotnet_diagnostic.SA1518.severity = warning
+# Braces should not be omitted from multi-line child statement
+dotnet_diagnostic.SA1519.severity = warning
+# Use braces consistently
+dotnet_diagnostic.SA1520.severity = warning
+# Elements should be documented
+dotnet_diagnostic.SA1600.severity = warning
+# Partial elements should be documented
+dotnet_diagnostic.SA1601.severity = warning
+# Enumeration items should be documented
+dotnet_diagnostic.SA1602.severity = warning
+# Documentation should contain valid XML
+dotnet_diagnostic.SA1603.severity = none
+# Element documentation should have summary
+dotnet_diagnostic.SA1604.severity = warning
+# Partial element documentation should have summary
+dotnet_diagnostic.SA1605.severity = warning
+# Element documentation should have summary text
+dotnet_diagnostic.SA1606.severity = warning
+# Partial element documentation should have summary text
+dotnet_diagnostic.SA1607.severity = warning
+# Element documentation should not have default summary
+dotnet_diagnostic.SA1608.severity = warning
+# Property documentation should have value
+dotnet_diagnostic.SA1609.severity = none
+# Property documentation should have value text
+dotnet_diagnostic.SA1610.severity = warning
+# Element parameters should be documented
+dotnet_diagnostic.SA1611.severity = warning
+# Element parameter documentation should match element parameters
+dotnet_diagnostic.SA1612.severity = warning
+# Element parameter documentation should declare parameter name
+dotnet_diagnostic.SA1613.severity = warning
+# Element parameter documentation should have text
+dotnet_diagnostic.SA1614.severity = warning
+# Element return value should be documented
+dotnet_diagnostic.SA1615.severity = warning
+# Element return value documentation should have text
+dotnet_diagnostic.SA1616.severity = warning
+# Void return value should not be documented
+dotnet_diagnostic.SA1617.severity = warning
+# Generic type parameters should be documented
+dotnet_diagnostic.SA1618.severity = warning
+# Generic type parameters should be documented partial class
+dotnet_diagnostic.SA1619.severity = warning
+# Generic type parameter documentation should match type parameters
+dotnet_diagnostic.SA1620.severity = warning
+# Generic type parameter documentation should declare parameter name
+dotnet_diagnostic.SA1621.severity = warning
+# Generic type parameter documentation should have text
+dotnet_diagnostic.SA1622.severity = warning
+# Property summary documentation should match accessors
+dotnet_diagnostic.SA1623.severity = warning
+# Property summary documentation should omit accessor with restricted access
+dotnet_diagnostic.SA1624.severity = warning
+# Element documentation should not be copied and pasted
+dotnet_diagnostic.SA1625.severity = warning
+# Single-line comments should not use documentation style slashes
+dotnet_diagnostic.SA1626.severity = warning
+# Documentation text should not be empty
+dotnet_diagnostic.SA1627.severity = warning
+# Documentation text should begin with a capital letter
+dotnet_diagnostic.SA1628.severity = none
+# Documentation text should end with a period
+dotnet_diagnostic.SA1629.severity = warning
+# Documentation text should contain whitespace
+dotnet_diagnostic.SA1630.severity = none
+# Documentation should meet character percentage
+dotnet_diagnostic.SA1631.severity = none
+# Documentation text should meet minimum character length
+dotnet_diagnostic.SA1632.severity = none
+# File should have header
+dotnet_diagnostic.SA1633.severity = warning
+# File header should show copyright
+dotnet_diagnostic.SA1634.severity = warning
+# File header should have copyright text
+dotnet_diagnostic.SA1635.severity = warning
+# File header copyright text should match
+dotnet_diagnostic.SA1636.severity = warning
+# File header should contain file name
+dotnet_diagnostic.SA1637.severity = warning
+# File header file name documentation should match file name
+dotnet_diagnostic.SA1638.severity = warning
+# File header should have summary
+dotnet_diagnostic.SA1639.severity = warning
+# File header should have valid company text
+dotnet_diagnostic.SA1640.severity = warning
+# File header company name text should match
+dotnet_diagnostic.SA1641.severity = warning
+# Constructor summary documentation should begin with standard text
+dotnet_diagnostic.SA1642.severity = warning
+# Destructor summary documentation should begin with standard text
+dotnet_diagnostic.SA1643.severity = warning
+# Documentation headers should not contain blank lines
+dotnet_diagnostic.SA1644.severity = none
+# Included documentation file does not exist
+dotnet_diagnostic.SA1645.severity = none
+# Included documentation XPath does not exist
+dotnet_diagnostic.SA1646.severity = none
+# Include node does not contain valid file and path
+dotnet_diagnostic.SA1647.severity = none
+# Inheritdoc should be used with inheriting class
+dotnet_diagnostic.SA1648.severity = warning
+# File name should match first type name
+dotnet_diagnostic.SA1649.severity = warning
+# Element documentation should be spelled correctly
+dotnet_diagnostic.SA1650.severity = none
+# Do not use placeholder elements
+dotnet_diagnostic.SA1651.severity = warning
+# Do not prefix local calls with 'this.'
+dotnet_diagnostic.SX1101.severity = none
+# Field names should begin with underscore
+dotnet_diagnostic.SX1309.severity = none
+# Static field names should begin with underscore
+dotnet_diagnostic.SX1309S.severity = none
+
+
+###############################
+# SonarCSharp - SonarLint for Visual Studio C# QP for SonarLint
+# Description: This rule set was automatically generated from SonarQube https://sonarcloud.io/profiles/show?key=AXMj64MpNLR31yYOjFOv
+###############################
+
+# Code files
+[*.{cs}]
+
+dotnet_diagnostic.S100.severity = suggestion
+dotnet_diagnostic.S1006.severity = warning
+dotnet_diagnostic.S101.severity = suggestion
+dotnet_diagnostic.S103.severity = none
+dotnet_diagnostic.S104.severity = none
+dotnet_diagnostic.S1048.severity = warning
+dotnet_diagnostic.S105.severity = none
+dotnet_diagnostic.S106.severity = none
+dotnet_diagnostic.S1066.severity = warning
+dotnet_diagnostic.S1067.severity = none
+dotnet_diagnostic.S107.severity = warning
+dotnet_diagnostic.S1075.severity = suggestion
+dotnet_diagnostic.S108.severity = warning
+dotnet_diagnostic.S109.severity = none
+dotnet_diagnostic.S110.severity = warning
+dotnet_diagnostic.S1104.severity = suggestion
+dotnet_diagnostic.S1109.severity = suggestion
+dotnet_diagnostic.S1110.severity = warning
+dotnet_diagnostic.S1116.severity = suggestion
+dotnet_diagnostic.S1117.severity = warning
+dotnet_diagnostic.S1118.severity = error
+dotnet_diagnostic.S112.severity = warning
+dotnet_diagnostic.S1121.severity = warning
+dotnet_diagnostic.S1123.severity = warning
+dotnet_diagnostic.S1125.severity = suggestion
+dotnet_diagnostic.S1128.severity = none
+dotnet_diagnostic.S113.severity = none
+dotnet_diagnostic.S1134.severity = warning
+dotnet_diagnostic.S1135.severity = suggestion
+dotnet_diagnostic.S1144.severity = warning
+dotnet_diagnostic.S1145.severity = none
+dotnet_diagnostic.S1147.severity = none
+dotnet_diagnostic.S1151.severity = none
+dotnet_diagnostic.S1155.severity = suggestion
+dotnet_diagnostic.S1163.severity = warning
+dotnet_diagnostic.S1168.severity = warning
+dotnet_diagnostic.S1172.severity = warning
+dotnet_diagnostic.S1185.severity = suggestion
+dotnet_diagnostic.S1186.severity = warning
+dotnet_diagnostic.S1192.severity = none
+dotnet_diagnostic.S1199.severity = suggestion
+dotnet_diagnostic.S1200.severity = none
+dotnet_diagnostic.S1206.severity = suggestion
+dotnet_diagnostic.S121.severity = warning
+dotnet_diagnostic.S1210.severity = suggestion
+dotnet_diagnostic.S1215.severity = warning
+dotnet_diagnostic.S122.severity = none
+dotnet_diagnostic.S1226.severity = none
+dotnet_diagnostic.S1227.severity = none
+dotnet_diagnostic.S1244.severity = none
+dotnet_diagnostic.S125.severity = warning
+dotnet_diagnostic.S126.severity = none
+dotnet_diagnostic.S1264.severity = suggestion
+dotnet_diagnostic.S127.severity = none
+dotnet_diagnostic.S1301.severity = none
+dotnet_diagnostic.S1309.severity = none
+dotnet_diagnostic.S131.severity = none
+dotnet_diagnostic.S134.severity = none
+dotnet_diagnostic.S138.severity = none
+dotnet_diagnostic.S1449.severity = none
+dotnet_diagnostic.S1450.severity = suggestion
+dotnet_diagnostic.S1451.severity = warning
+dotnet_diagnostic.S1479.severity = warning
+dotnet_diagnostic.S1481.severity = suggestion
+dotnet_diagnostic.S1541.severity = none
+dotnet_diagnostic.S1607.severity = warning
+dotnet_diagnostic.S1643.severity = suggestion
+dotnet_diagnostic.S1656.severity = warning
+dotnet_diagnostic.S1659.severity = none
+dotnet_diagnostic.S1694.severity = suggestion
+dotnet_diagnostic.S1696.severity = none
+dotnet_diagnostic.S1697.severity = none
+dotnet_diagnostic.S1698.severity = none
+dotnet_diagnostic.S1699.severity = warning
+dotnet_diagnostic.S1751.severity = warning
+dotnet_diagnostic.S1764.severity = warning
+dotnet_diagnostic.S1821.severity = none
+dotnet_diagnostic.S1848.severity = warning
+dotnet_diagnostic.S1854.severity = warning
+dotnet_diagnostic.S1858.severity = none
+dotnet_diagnostic.S1862.severity = warning
+dotnet_diagnostic.S1871.severity = warning
+dotnet_diagnostic.S1905.severity = suggestion
+dotnet_diagnostic.S1939.severity = suggestion
+dotnet_diagnostic.S1940.severity = suggestion
+dotnet_diagnostic.S1944.severity = warning
+dotnet_diagnostic.S1994.severity = none
+dotnet_diagnostic.S2053.severity = warning
+dotnet_diagnostic.S2070.severity = none
+dotnet_diagnostic.S2114.severity = warning
+dotnet_diagnostic.S2123.severity = warning
+dotnet_diagnostic.S2148.severity = none
+dotnet_diagnostic.S2156.severity = none
+dotnet_diagnostic.S2178.severity = warning
+dotnet_diagnostic.S2183.severity = suggestion
+dotnet_diagnostic.S2184.severity = suggestion
+dotnet_diagnostic.S2187.severity = warning
+dotnet_diagnostic.S2190.severity = warning
+dotnet_diagnostic.S2197.severity = none
+dotnet_diagnostic.S2201.severity = warning
+dotnet_diagnostic.S2219.severity = suggestion
+dotnet_diagnostic.S2221.severity = none
+dotnet_diagnostic.S2223.severity = warning
+dotnet_diagnostic.S2225.severity = warning
+dotnet_diagnostic.S2228.severity = none
+dotnet_diagnostic.S2234.severity = warning
+dotnet_diagnostic.S2251.severity = warning
+dotnet_diagnostic.S2252.severity = warning
+dotnet_diagnostic.S2259.severity = warning
+dotnet_diagnostic.S2275.severity = warning
+dotnet_diagnostic.S2278.severity = none
+dotnet_diagnostic.S2290.severity = warning
+dotnet_diagnostic.S2291.severity = warning
+dotnet_diagnostic.S2292.severity = suggestion
+dotnet_diagnostic.S2302.severity = warning
+dotnet_diagnostic.S2306.severity = warning
+dotnet_diagnostic.S2325.severity = none
+dotnet_diagnostic.S2326.severity = warning
+dotnet_diagnostic.S2327.severity = none
+dotnet_diagnostic.S2328.severity = suggestion
+dotnet_diagnostic.S2330.severity = none
+dotnet_diagnostic.S2333.severity = none
+dotnet_diagnostic.S2339.severity = none
+dotnet_diagnostic.S2342.severity = suggestion
+dotnet_diagnostic.S2344.severity = suggestion
+dotnet_diagnostic.S2345.severity = suggestion
+dotnet_diagnostic.S2346.severity = warning
+dotnet_diagnostic.S2357.severity = warning
+dotnet_diagnostic.S2360.severity = none
+dotnet_diagnostic.S2365.severity = warning
+dotnet_diagnostic.S2368.severity = warning
+dotnet_diagnostic.S2372.severity = warning
+dotnet_diagnostic.S2376.severity = warning
+dotnet_diagnostic.S2386.severity = suggestion
+dotnet_diagnostic.S2387.severity = none
+dotnet_diagnostic.S2436.severity = warning
+dotnet_diagnostic.S2437.severity = warning
+dotnet_diagnostic.S2479.severity = warning
+dotnet_diagnostic.S2486.severity = suggestion
+dotnet_diagnostic.S2551.severity = warning
+dotnet_diagnostic.S2583.severity = warning
+dotnet_diagnostic.S2589.severity = warning
+dotnet_diagnostic.S2674.severity = none
+dotnet_diagnostic.S2681.severity = warning
+dotnet_diagnostic.S2688.severity = warning
+dotnet_diagnostic.S2692.severity = warning
+dotnet_diagnostic.S2696.severity = warning
+dotnet_diagnostic.S2699.severity = warning
+dotnet_diagnostic.S2701.severity = none
+dotnet_diagnostic.S2737.severity = suggestion
+dotnet_diagnostic.S2743.severity = warning
+dotnet_diagnostic.S2755.severity = warning
+dotnet_diagnostic.S2757.severity = warning
+dotnet_diagnostic.S2758.severity = none
+dotnet_diagnostic.S2760.severity = none
+dotnet_diagnostic.S2761.severity = warning
+dotnet_diagnostic.S2857.severity = warning
+dotnet_diagnostic.S2930.severity = warning
+dotnet_diagnostic.S2931.severity = none
+dotnet_diagnostic.S2933.severity = warning
+dotnet_diagnostic.S2934.severity = suggestion
+dotnet_diagnostic.S2952.severity = none
+dotnet_diagnostic.S2953.severity = warning
+dotnet_diagnostic.S2955.severity = none
+dotnet_diagnostic.S2971.severity = warning
+dotnet_diagnostic.S2995.severity = warning
+dotnet_diagnostic.S2996.severity = warning
+dotnet_diagnostic.S2997.severity = warning
+dotnet_diagnostic.S3005.severity = warning
+dotnet_diagnostic.S3010.severity = warning
+dotnet_diagnostic.S3011.severity = warning
+dotnet_diagnostic.S3052.severity = none
+dotnet_diagnostic.S3060.severity = warning
+dotnet_diagnostic.S3168.severity = warning
+dotnet_diagnostic.S3169.severity = warning
+dotnet_diagnostic.S3172.severity = warning
+dotnet_diagnostic.S3215.severity = none
+dotnet_diagnostic.S3216.severity = none
+dotnet_diagnostic.S3217.severity = warning
+dotnet_diagnostic.S3218.severity = warning
+dotnet_diagnostic.S3220.severity = suggestion
+dotnet_diagnostic.S3234.severity = none
+dotnet_diagnostic.S3235.severity = none
+dotnet_diagnostic.S3236.severity = suggestion
+dotnet_diagnostic.S3237.severity = warning
+dotnet_diagnostic.S3240.severity = none
+dotnet_diagnostic.S3241.severity = suggestion
+dotnet_diagnostic.S3242.severity = none
+dotnet_diagnostic.S3244.severity = warning
+dotnet_diagnostic.S3246.severity = warning
+dotnet_diagnostic.S3247.severity = suggestion
+dotnet_diagnostic.S3249.severity = warning
+dotnet_diagnostic.S3251.severity = suggestion
+dotnet_diagnostic.S3253.severity = none
+dotnet_diagnostic.S3254.severity = none
+dotnet_diagnostic.S3256.severity = suggestion
+dotnet_diagnostic.S3257.severity = none
+dotnet_diagnostic.S3261.severity = suggestion
+dotnet_diagnostic.S3262.severity = warning
+dotnet_diagnostic.S3263.severity = warning
+dotnet_diagnostic.S3264.severity = warning
+dotnet_diagnostic.S3265.severity = warning
+dotnet_diagnostic.S3329.severity = warning
+dotnet_diagnostic.S3343.severity = warning
+dotnet_diagnostic.S3346.severity = warning
+dotnet_diagnostic.S3353.severity = none
+dotnet_diagnostic.S3358.severity = warning
+dotnet_diagnostic.S3366.severity = none
+dotnet_diagnostic.S3376.severity = suggestion
+dotnet_diagnostic.S3397.severity = suggestion
+dotnet_diagnostic.S3400.severity = suggestion
+dotnet_diagnostic.S3415.severity = warning
+dotnet_diagnostic.S3427.severity = warning
+dotnet_diagnostic.S3431.severity = none
+dotnet_diagnostic.S3433.severity = warning
+dotnet_diagnostic.S3440.severity = suggestion
+dotnet_diagnostic.S3441.severity = none
+dotnet_diagnostic.S3442.severity = warning
+dotnet_diagnostic.S3443.severity = warning
+dotnet_diagnostic.S3444.severity = suggestion
+dotnet_diagnostic.S3445.severity = warning
+dotnet_diagnostic.S3447.severity = warning
+dotnet_diagnostic.S3449.severity = warning
+dotnet_diagnostic.S3450.severity = suggestion
+dotnet_diagnostic.S3451.severity = warning
+dotnet_diagnostic.S3453.severity = warning
+dotnet_diagnostic.S3456.severity = suggestion
+dotnet_diagnostic.S3457.severity = warning
+dotnet_diagnostic.S3458.severity = suggestion
+dotnet_diagnostic.S3459.severity = suggestion
+dotnet_diagnostic.S3464.severity = warning
+dotnet_diagnostic.S3466.severity = warning
+dotnet_diagnostic.S3532.severity = suggestion
+dotnet_diagnostic.S3597.severity = warning
+dotnet_diagnostic.S3598.severity = warning
+dotnet_diagnostic.S3600.severity = warning
+dotnet_diagnostic.S3603.severity = warning
+dotnet_diagnostic.S3604.severity = suggestion
+dotnet_diagnostic.S3610.severity = warning
+dotnet_diagnostic.S3626.severity = suggestion
+dotnet_diagnostic.S3655.severity = warning
+dotnet_diagnostic.S3693.severity = none
+dotnet_diagnostic.S3717.severity = none
+dotnet_diagnostic.S3776.severity = warning
+dotnet_diagnostic.S3869.severity = warning
+dotnet_diagnostic.S3871.severity = warning
+dotnet_diagnostic.S3872.severity = none
+dotnet_diagnostic.S3874.severity = none
+dotnet_diagnostic.S3875.severity = warning
+dotnet_diagnostic.S3876.severity = none
+dotnet_diagnostic.S3877.severity = warning
+dotnet_diagnostic.S3880.severity = none
+dotnet_diagnostic.S3881.severity = warning
+dotnet_diagnostic.S3884.severity = warning
+dotnet_diagnostic.S3885.severity = warning
+dotnet_diagnostic.S3887.severity = suggestion
+dotnet_diagnostic.S3889.severity = warning
+dotnet_diagnostic.S3897.severity = suggestion
+dotnet_diagnostic.S3898.severity = none
+dotnet_diagnostic.S3900.severity = none
+dotnet_diagnostic.S3902.severity = none
+dotnet_diagnostic.S3903.severity = warning
+dotnet_diagnostic.S3904.severity = warning
+dotnet_diagnostic.S3906.severity = none
+dotnet_diagnostic.S3908.severity = none
+dotnet_diagnostic.S3909.severity = none
+dotnet_diagnostic.S3923.severity = warning
+dotnet_diagnostic.S3925.severity = warning
+dotnet_diagnostic.S3926.severity = warning
+dotnet_diagnostic.S3927.severity = warning
+dotnet_diagnostic.S3928.severity = warning
+dotnet_diagnostic.S3937.severity = none
+dotnet_diagnostic.S3949.severity = warning
+dotnet_diagnostic.S3956.severity = none
+dotnet_diagnostic.S3962.severity = suggestion
+dotnet_diagnostic.S3963.severity = suggestion
+dotnet_diagnostic.S3966.severity = warning
+dotnet_diagnostic.S3967.severity = none
+dotnet_diagnostic.S3971.severity = warning
+dotnet_diagnostic.S3972.severity = warning
+dotnet_diagnostic.S3973.severity = warning
+dotnet_diagnostic.S3981.severity = warning
+dotnet_diagnostic.S3984.severity = warning
+dotnet_diagnostic.S3990.severity = none
+dotnet_diagnostic.S3992.severity = none
+dotnet_diagnostic.S3993.severity = none
+dotnet_diagnostic.S3994.severity = none
+dotnet_diagnostic.S3995.severity = none
+dotnet_diagnostic.S3996.severity = none
+dotnet_diagnostic.S3997.severity = none
+dotnet_diagnostic.S3998.severity = warning
+dotnet_diagnostic.S4000.severity = none
+dotnet_diagnostic.S4002.severity = none
+dotnet_diagnostic.S4004.severity = none
+dotnet_diagnostic.S4005.severity = none
+dotnet_diagnostic.S4015.severity = warning
+dotnet_diagnostic.S4016.severity = none
+dotnet_diagnostic.S4017.severity = none
+dotnet_diagnostic.S4018.severity = none
+dotnet_diagnostic.S4019.severity = warning
+dotnet_diagnostic.S4022.severity = none
+dotnet_diagnostic.S4023.severity = none
+dotnet_diagnostic.S4025.severity = none
+dotnet_diagnostic.S4026.severity = none
+dotnet_diagnostic.S4027.severity = none
+dotnet_diagnostic.S4035.severity = warning
+dotnet_diagnostic.S4039.severity = none
+dotnet_diagnostic.S4040.severity = none
+dotnet_diagnostic.S4041.severity = none
+dotnet_diagnostic.S4047.severity = none
+dotnet_diagnostic.S4049.severity = none
+dotnet_diagnostic.S4050.severity = none
+dotnet_diagnostic.S4052.severity = none
+dotnet_diagnostic.S4055.severity = none
+dotnet_diagnostic.S4056.severity = none
+dotnet_diagnostic.S4057.severity = none
+dotnet_diagnostic.S4058.severity = none
+dotnet_diagnostic.S4059.severity = none
+dotnet_diagnostic.S4060.severity = none
+dotnet_diagnostic.S4061.severity = suggestion
+dotnet_diagnostic.S4069.severity = none
+dotnet_diagnostic.S4070.severity = warning
+dotnet_diagnostic.S4136.severity = suggestion
+dotnet_diagnostic.S4142.severity = none
+dotnet_diagnostic.S4143.severity = warning
+dotnet_diagnostic.S4144.severity = warning
+dotnet_diagnostic.S4158.severity = suggestion
+dotnet_diagnostic.S4159.severity = warning
+dotnet_diagnostic.S4200.severity = warning
+dotnet_diagnostic.S4201.severity = suggestion
+dotnet_diagnostic.S4210.severity = warning
+dotnet_diagnostic.S4211.severity = warning
+dotnet_diagnostic.S4212.severity = none
+dotnet_diagnostic.S4214.severity = warning
+dotnet_diagnostic.S4220.severity = warning
+dotnet_diagnostic.S4225.severity = none
+dotnet_diagnostic.S4226.severity = none
+dotnet_diagnostic.S4260.severity = warning
+dotnet_diagnostic.S4261.severity = none
+dotnet_diagnostic.S4275.severity = warning
+dotnet_diagnostic.S4277.severity = warning
+dotnet_diagnostic.S4423.severity = warning
+dotnet_diagnostic.S4426.severity = warning
+dotnet_diagnostic.S4428.severity = warning
+dotnet_diagnostic.S4432.severity = none
+dotnet_diagnostic.S4433.severity = warning
+dotnet_diagnostic.S4456.severity = warning
+dotnet_diagnostic.S4457.severity = warning
+dotnet_diagnostic.S4462.severity = none
+dotnet_diagnostic.S4487.severity = warning
+dotnet_diagnostic.S4524.severity = warning
+dotnet_diagnostic.S4564.severity = none
+dotnet_diagnostic.S4581.severity = warning
+dotnet_diagnostic.S4583.severity = warning
+dotnet_diagnostic.S4586.severity = warning
+dotnet_diagnostic.S4635.severity = warning
+dotnet_diagnostic.S4830.severity = warning
+dotnet_diagnostic.S5034.severity = warning
+dotnet_diagnostic.S5542.severity = warning
+dotnet_diagnostic.S5547.severity = warning
+dotnet_diagnostic.S5659.severity = warning
+dotnet_diagnostic.S5773.severity = warning
+dotnet_diagnostic.S818.severity = suggestion
+dotnet_diagnostic.S881.severity = none
+dotnet_diagnostic.S907.severity = warning
+dotnet_diagnostic.S927.severity = warning
+
+###############################
+# AsyncAnalyzer - Microsoft.VisualStudio.Threading
+# Description: The Microsoft.VisualStudio.Threading is a xplat library that provides many threading and synchronization primitives used in Visual Studio and other applications. https://github.com/microsoft/vs-threading
+###############################
+
+# Code files
+[*.{cs}]
+
+dotnet_diagnostic.VSTHRD100.severity = warning  #Avoid async void methods
+dotnet_diagnostic.VSTHRD101.severity = warning  #Avoid unsupported async delegates
+dotnet_diagnostic.VSTHRD106.severity = warning  #Use InvokeAsync to raise async events
+dotnet_diagnostic.VSTHRD111.severity = Hidden   #Add .ConfigureAwait(bool) to your await expression
+dotnet_diagnostic.VSTHRD113.severity = Info     #Check for System.IAsyncDisposable
+dotnet_diagnostic.VSTHRD200.severity = warning  #Use "Async" suffix for async methods
+
+dotnet_diagnostic.VSTHRD001.severity = warning  #Avoid legacy thread switching APIs
+dotnet_diagnostic.VSTHRD002.severity = warning  #Avoid problematic synchronous waits
+dotnet_diagnostic.VSTHRD003.severity = warning  #Avoid awaiting foreign Tasks
+dotnet_diagnostic.VSTHRD004.severity = Error    #Await SwitchToMainThreadAsync
+dotnet_diagnostic.VSTHRD010.severity = warning  #Invoke single-threaded types on Main thread
+dotnet_diagnostic.VSTHRD011.severity = Error    #Invoking or blocking on async code in a Lazy<T> value factory can deadlock. Use AsyncLazy<T> instead.
+dotnet_diagnostic.VSTHRD012.severity = warning  #Provide an instance of JoinableTaskFactory in this call (or another overload) to avoid deadlocks with the main thread
+dotnet_diagnostic.VSTHRD102.severity = Info     #Limit use of synchronously blocking method calls such as JoinableTaskFactory.Run or Task.Result to public entrypoint members where you must be synchronous. Using it for internal members can needlessly add synchronous frames between asynchronous frames, leading to threadpool exhaustion.
+dotnet_diagnostic.VSTHRD103.severity = warning  #{0} synchronously blocks. Await {1} instead.
+dotnet_diagnostic.VSTHRD104.severity = Info     #Expose an async version of this method that does not synchronously block. Then simplify this method to call that async method within a JoinableTaskFactory.Run delegate.
+dotnet_diagnostic.VSTHRD105.severity = warning  #Avoid method overloads that assume TaskScheduler.Current. Use an overload that accepts a TaskScheduler and specify TaskScheduler.Default (or any other) explicitly.
+dotnet_diagnostic.VSTHRD107.severity = Error    #Missing await operator for "using" expression
+dotnet_diagnostic.VSTHRD108.severity = Warning  #Thread affinity checks should be unconditional
+dotnet_diagnostic.VSTHRD109.severity = Error    #Avoid throwing when not on the main thread while in an async or Task-returning method. Switch to the thread required instead.
+dotnet_diagnostic.VSTHRD110.severity = Warning  #Observe the awaitable result of this method call by awaiting it, assigning to a variable, or passing it to another method.
+dotnet_diagnostic.VSTHRD112.severity = Info     #Implement the System.IAsyncDisposable interface when implementing the obsolete Microsoft.VisualStudio.Threading.IAsyncDisposable interface
+dotnet_diagnostic.VSTHRD114.severity = Warning  #Avoid returning a null Task
