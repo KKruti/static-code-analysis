@@ -44,5 +44,4 @@ jobs:
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"KKruti_static-code-analysis" /o:"kkruti" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" 
           dotnet build 
-          /d:sonar.cs.roslyn.bugCategories="StyleCop.CSharp.DocumentationRules"
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.cs.roslyn.bugCategories="StyleCop.CSharp.DocumentationRules" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
