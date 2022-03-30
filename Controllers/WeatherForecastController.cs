@@ -29,6 +29,9 @@ namespace WebApplication1.Controllers
             //This should show as an error
             var stringData = "";
             var stringData1 = "";
+            var stringData2 = "";
+            var stringData3 = "";
+            var stringData4 = "";
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
