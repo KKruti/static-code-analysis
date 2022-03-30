@@ -28,6 +28,10 @@ namespace WebApplication1.Controllers
         {
             //This should show as an error
             var stringData = "";
+            var blankData = "";
+            var blankData1 = "";
+            var blankData2 = "";
+
             var stringData1 = "";
             var stringData2 = "";
             var stringData3 = "";
