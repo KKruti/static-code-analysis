@@ -32,6 +32,7 @@ namespace WebApplication1.Controllers
             var stringData2 = "";
             var stringData3 = "";
             var stringData4 = "";
+            var stringData5 = "";
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
