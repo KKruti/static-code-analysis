@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -37,6 +36,8 @@ namespace WebApplication1.Controllers
             var stringData3 = "";
             var stringData4 = "";
             var stringData5 = "";
+            var stringData6 = "";
+            var stringData7 = "";
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
