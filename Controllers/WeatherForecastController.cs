@@ -37,6 +37,8 @@ namespace WebApplication1.Controllers
             var stringData3 = "";
             var stringData4 = "";
             var stringData5 = "";
+            var stringData6 = "";
+            var stringData7 = "";
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
@@ -45,6 +47,20 @@ namespace WebApplication1.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpGet]
+        public async Task GetUserData()
+        {
+            await Task.Run(() =>
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    Console.WriteLine(" Method 1");
+                    // Do something
+                    Task.Delay(100).Wait();
+                }
+            });
         }
     }
 }
