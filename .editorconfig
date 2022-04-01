@@ -8,10 +8,12 @@ root = true
 [*]
 indent_style = space
 
+
 # Code files
 [*.{cs,csx}]
 indent_size = 4
 insert_final_newline = true
+end_of_line = lf #(\n) will consider a a end_of_line
 charset = utf-8-bom
 
 ###############################
@@ -846,8 +848,8 @@ dotnet_diagnostic.S927.severity = warning
 dotnet_diagnostic.VSTHRD100.severity = warning  #Avoid async void methods
 dotnet_diagnostic.VSTHRD101.severity = warning  #Avoid unsupported async delegates
 dotnet_diagnostic.VSTHRD106.severity = warning  #Use InvokeAsync to raise async events
-dotnet_diagnostic.VSTHRD111.severity = Hidden   #Add .ConfigureAwait(bool) to your await expression
-dotnet_diagnostic.VSTHRD113.severity = Info     #Check for System.IAsyncDisposable
+dotnet_diagnostic.VSTHRD111.severity = none   #Add .ConfigureAwait(bool) to your await expression
+dotnet_diagnostic.VSTHRD113.severity = suggestion     #Check for System.IAsyncDisposable
 dotnet_diagnostic.VSTHRD200.severity = warning  #Use "Async" suffix for async methods
 
 dotnet_diagnostic.VSTHRD001.severity = warning  #Avoid legacy thread switching APIs
@@ -857,13 +859,13 @@ dotnet_diagnostic.VSTHRD004.severity = Error    #Await SwitchToMainThreadAsync
 dotnet_diagnostic.VSTHRD010.severity = warning  #Invoke single-threaded types on Main thread
 dotnet_diagnostic.VSTHRD011.severity = Error    #Invoking or blocking on async code in a Lazy<T> value factory can deadlock. Use AsyncLazy<T> instead.
 dotnet_diagnostic.VSTHRD012.severity = warning  #Provide an instance of JoinableTaskFactory in this call (or another overload) to avoid deadlocks with the main thread
-dotnet_diagnostic.VSTHRD102.severity = Info     #Limit use of synchronously blocking method calls such as JoinableTaskFactory.Run or Task.Result to public entrypoint members where you must be synchronous. Using it for internal members can needlessly add synchronous frames between asynchronous frames, leading to threadpool exhaustion.
+dotnet_diagnostic.VSTHRD102.severity = suggestion     #Limit use of synchronously blocking method calls such as JoinableTaskFactory.Run or Task.Result to public entrypoint members where you must be synchronous. Using it for internal members can needlessly add synchronous frames between asynchronous frames, leading to threadpool exhaustion.
 dotnet_diagnostic.VSTHRD103.severity = warning  #{0} synchronously blocks. Await {1} instead.
-dotnet_diagnostic.VSTHRD104.severity = Info     #Expose an async version of this method that does not synchronously block. Then simplify this method to call that async method within a JoinableTaskFactory.Run delegate.
+dotnet_diagnostic.VSTHRD104.severity = suggestion     #Expose an async version of this method that does not synchronously block. Then simplify this method to call that async method within a JoinableTaskFactory.Run delegate.
 dotnet_diagnostic.VSTHRD105.severity = warning  #Avoid method overloads that assume TaskScheduler.Current. Use an overload that accepts a TaskScheduler and specify TaskScheduler.Default (or any other) explicitly.
 dotnet_diagnostic.VSTHRD107.severity = Error    #Missing await operator for "using" expression
 dotnet_diagnostic.VSTHRD108.severity = Warning  #Thread affinity checks should be unconditional
 dotnet_diagnostic.VSTHRD109.severity = Error    #Avoid throwing when not on the main thread while in an async or Task-returning method. Switch to the thread required instead.
 dotnet_diagnostic.VSTHRD110.severity = Warning  #Observe the awaitable result of this method call by awaiting it, assigning to a variable, or passing it to another method.
-dotnet_diagnostic.VSTHRD112.severity = Info     #Implement the System.IAsyncDisposable interface when implementing the obsolete Microsoft.VisualStudio.Threading.IAsyncDisposable interface
+dotnet_diagnostic.VSTHRD112.severity = suggestion     #Implement the System.IAsyncDisposable interface when implementing the obsolete Microsoft.VisualStudio.Threading.IAsyncDisposable interface
 dotnet_diagnostic.VSTHRD114.severity = Warning  #Avoid returning a null Task
